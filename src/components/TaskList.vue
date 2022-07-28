@@ -28,9 +28,6 @@
         </div>
       </preview-vue>
 
-      <!-- <div v-if="isLoading" class="w-full text-center text-4xl text-blue-700">
-        Loading...<br />Please wait
-      </div> -->
       <task-item-vue
         :key="task.id"
         v-for="task in tasks"
