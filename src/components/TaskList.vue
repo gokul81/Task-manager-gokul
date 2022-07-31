@@ -6,8 +6,7 @@
       :item="task"
     ></edit-button-vue>
 
-<task-form @onAdd="addTask"></task-form>
-    
+<task-form @onAdd="addTask"></task-form>   
     <div v-if="tasks.length > 0">
       <preview-vue>
         <div

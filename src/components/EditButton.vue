@@ -20,7 +20,6 @@
 <script>
 export default {
   props: ["show", "item"],
- 
   methods: {
     onSubmit(e, id) {
       console.log(e, this.item.title);
