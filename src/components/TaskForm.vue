@@ -1,8 +1,8 @@
 <template>
-  <div class="mt-4" >
+  <div class="mt-4">
     <buttton
       @click="toggle = !toggle"
-      class="px-3 py-3  text-white bg-sky-600 w-20 mx-auto mb-6 cursor-pointer font-bold rounded-lg"
+      class="px-3 py-3 text-white bg-sky-600 w-20 mx-auto mb-6 cursor-pointer font-bold rounded-lg"
       >Add Task</buttton
     >
     <form
@@ -11,7 +11,9 @@
       class="flex flex-col gap-5 border-2 p-2 mb-5 bg-slate-900 mt-4 rounded-lg"
     >
       <div class="flex flex-col">
-        <label for="" class="mr-2 text-xl px-2 font-bold text-white">New Task</label>
+        <label for="" class="mr-2 text-xl px-2 font-bold text-white"
+          >New Task</label
+        >
         <input
           v-model="name"
           type="text"
@@ -20,7 +22,7 @@
         />
       </div>
       <button
-        class= "bg-slate-600 text-white text-xl  rounded ml-80"
+        class="bg-slate-600 text-white text-xl rounded ml-80"
         style="width: 100px"
         @click="toggle = !toggle"
       >
@@ -29,7 +31,6 @@
     </form>
   </div>
 </template>
-
 <script>
 export default {
   data() {
@@ -47,4 +48,3 @@ export default {
 </script>
 
 <style></style>
-

@@ -4,21 +4,9 @@ export default {
   emits: ["onDelete", "onShow", "onEdit"],
 };
 </script>
-
 <template>
   <div
-    class="
-      p-1
-      rounded-lg
-      mb-1
-      bg-teal-600
-      flex
-      justify-between
-      border-slate-900
-      shadow-2xl
-      mt-4
-      text-xl
-    "
+    class="p-1 rounded-lg mb-1 bg-teal-600 flex justify-between border-slate-900 shadow-2xl mt-4 text-xl"
   >
     {{ item.title }}
     <div class="flex row-reverse" style="gap: 1rem">
@@ -29,5 +17,4 @@ export default {
   </div>
 </template>
 
-<style>
-</style>
+<style></style>

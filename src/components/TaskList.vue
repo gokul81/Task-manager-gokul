@@ -11,18 +11,7 @@
       <preview-vue>
         <div
           v-show="toggle"
-          class="
-            border-2
-            backdrop-blur-lg
-            rounded-lg
-            bg-gray-800
-            text-white text-xl
-            py-3
-            w-[40%]
-            fixed
-            top-[30%]
-            right-[30%]
-          "
+          class="border-2 backdrop-blur-lg rounded-lg bg-gray-800 text-white text-xl py-3 w-[40%] fixed top-[30%] right-[30%]"
         >
           <div>
             <div class="text-center">{{ task }}</div>
@@ -106,8 +95,8 @@ export default {
       toggle: false,
       task_preview_model: false,
       task_edit_model: false,
-      id: Math.floor(Math.random() * 1000),
-      userId: Math.floor(Math.random() * 10000),
+      // id: Math.floor(Math.random() * 1000),
+      // userId: Math.floor(Math.random() * 10000),
       title: "",
     };
   },
