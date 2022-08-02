@@ -112,17 +112,17 @@ export default {
     };
   },
   methods: {
-    async addTask(e) {
+    addTask(e) {
       const data = new FormData(e.target);
       const user = Object.fromEntries(data.entries());
       user.id = Math.floor(Math.random() * 1000);
       this.$store.dispatch("task/add_Task", user);
     },
 
-    async task_edit(id) {
+    task_edit(id) {
       this.task_edit_model = !this.task_edit_model;
     },
-    async tasks_update(e, id, newTitle) {
+    tasks_update(e, id, newTitle) {
       this.tasks.forEach((todo) => {
         if (todo.id === id) {
           todo.title = newTitle;
