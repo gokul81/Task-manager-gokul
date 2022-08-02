@@ -1,13 +1,6 @@
 <template>
   <div
-    class="
-      h-screen
-      overflow-hidden
-      flex
-      items-center
-      justify-center
-      bg-[#edf2f7]
-    "
+    class="h-screen overflow-hidden flex items-center justify-center bg-[#edf2f7]"
   >
     <div class="container max-w-full mx-auto py-24 px-6">
       <div class="font-sans">
@@ -26,22 +19,7 @@
                       <input
                         placeholder=""
                         type="text"
-                        class="
-                          text-md
-                          block
-                          px-3
-                          py-2
-                          rounded-lg
-                          w-full
-                          bg-white
-                          border-2 border-gray-300
-                          placeholder-gray-600
-                          shadow-md
-                          focus:placeholder-gray-500
-                          focus:bg-white
-                          focus:border-gray-600
-                          focus:outline-none
-                        "
+                        class="text-md block px-3 py-2 rounded-lg w-full bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-gray-600 focus:outline-none"
                       />
                     </div>
                     <div class="py-2" x-data="{ show: true }">
@@ -50,34 +28,10 @@
                         <input
                           placeholder=""
                           :type="show ? 'password' : 'text'"
-                          class="
-                            text-md
-                            block
-                            px-3
-                            py-2
-                            rounded-lg
-                            w-full
-                            bg-white
-                            border-2 border-gray-300
-                            placeholder-gray-600
-                            shadow-md
-                            focus:placeholder-gray-500
-                            focus:bg-white
-                            focus:border-gray-600
-                            focus:outline-none
-                          "
+                          class="text-md block px-3 py-2 rounded-lg w-full bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-gray-600 focus:outline-none"
                         />
                         <div
-                          class="
-                            absolute
-                            inset-y-0
-                            right-0
-                            pr-3
-                            flex
-                            items-center
-                            text-sm
-                            leading-5
-                          "
+                          class="absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5"
                         >
                           <svg
                             class="h-6 text-gray-700"
@@ -122,32 +76,13 @@
                       <label class="block text-gray-500 font-bold my-4"
                         ><a
                           href="#"
-                          class="
-                            cursor-pointer
-                            tracking-tighter
-                            text-black
-                            border-b-2 border-gray-200
-                            hover:border-gray-400
-                          "
+                          class="cursor-pointer tracking-tighter text-black border-b-2 border-gray-200 hover:border-gray-400"
                           ><span>Forgot Password?</span></a
                         ></label
                       >
                     </div>
                     <button
-                      class="
-                        mt-3
-                        text-lg
-                        font-semibold
-                        bg-gray-800
-                        w-full
-                        text-white
-                        rounded-lg
-                        px-6
-                        py-3
-                        block
-                        shadow-xl
-                        hover:text-white hover:bg-black
-                      "
+                      class="mt-3 text-lg font-semibold bg-gray-800 w-full text-white rounded-lg px-6 py-3 block shadow-xl hover:text-white hover:bg-black"
                     >
                       Login
                     </button>
@@ -165,5 +100,4 @@
 export default {};
 </script>
 
-<style>
-</style>
+<style></style>
