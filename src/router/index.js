@@ -1,7 +1,10 @@
-import {createWebHistory,createRouter} from 'vue-router';
-import  UsersPage from '../views/UsersPage.vue';
+import {createWebHistory,createRouter} from "vue-router";
+import  UsersPage from "../views/UsersPage.vue";
 const routes=[
-    {path:'/', name:'Users',component:UsersPage}
+    {path:'/',
+     name:'Users',
+     component:UsersPage,
+    },
 ];
 
 const router = createRouter({

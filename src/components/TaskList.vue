@@ -6,12 +6,23 @@
       :item="task"
     ></edit-button-vue>
 
-<task-form @onAdd="addTask"></task-form>   
+    <task-form @onAdd="addTask"></task-form>
     <div v-if="tasks.length > 0">
       <preview-vue>
         <div
           v-show="toggle"
-          class="border-2 backdrop-blur-lg rounded-lg bg-gray-800 text-white text-xl py-3 w-[40%] fixed top-[30%] right-[30%]"
+          class="
+            border-2
+            backdrop-blur-lg
+            rounded-lg
+            bg-gray-800
+            text-white text-xl
+            py-3
+            w-[40%]
+            fixed
+            top-[30%]
+            right-[30%]
+          "
         >
           <div>
             <div class="text-center">{{ task }}</div>
@@ -38,17 +49,25 @@
           <div class="flex justify-end">
             <button
               @click="toggle = !toggle"
-              class="text-base px-3 text-white py-1  rounded-xl"
+              class="text-base px-3 text-white py-1 rounded-xl"
             >
-              <img src="../assets/show.png" alt="show" class="w-[30px] h-[30px]">
+              <img
+                src="../assets/show.png"
+                alt="show"
+                class="w-[30px] h-[30px]"
+              />
             </button>
           </div>
           <div>
             <button
               @click="task_edit(task.id)"
-              class="text-base px-4 text-white py-1  rounded-xl"
+              class="text-base px-4 text-white py-1 rounded-xl"
             >
-               <img src="../assets/edit.png" alt="edit" class="w-[25px] h-[25px]">
+              <img
+                src="../assets/edit.png"
+                alt="edit"
+                class="w-[25px] h-[25px]"
+              />
             </button>
           </div>
           <div>
@@ -56,13 +75,19 @@
               @click="tasks_remove(task.id)"
               class="text-base px-2 text-white py-1 rounded-xl"
             >
-               <img src="../assets/delete2.png" alt="delete" class="w-[25px] h-[25px]">
+              <img
+                src="../assets/delete2.png"
+                alt="delete"
+                class="w-[25px] h-[25px]"
+              />
             </button>
           </div>
         </div>
       </task-item-vue>
     </div>
-    <div class=" w-full h-full text-center text-5xl text-white" v-else>No tasks!</div>
+    <div class="w-full h-full text-center text-5xl text-white" v-else>
+      No tasks!
+    </div>
   </div>
 </template>
 
@@ -71,68 +96,33 @@ import TaskItemVue from "./TaskItem.vue";
 import PreviewVue from "./Preview.vue";
 import EditButtonVue from "./EditButton.vue";
 import TaskForm from "./TaskForm.vue";
+import { mapActions, mapState } from "vuex";
 export default {
   data() {
     return {
       isLoading: false,
-      tasks: [],
-      task: [],
+      // task: [],
       editValue: null,
       toggle: false,
       task_preview_model: false,
       task_edit_model: false,
+      id: Math.floor(Math.random() * 1000),
+      userId: Math.floor(Math.random() * 10000),
+      title: "",
     };
   },
   methods: {
-    async getTaskList() {
-      this.isLoading = true;
-      await fetch("http://localhost:3000/tasks")
-        .then((res) => res.json())
-        .then((json) => (this.tasks = json));
-      // this.isLoading = false;
-    },
-    async showTask(taskid) {
-      console.log(taskid);
-      await fetch("http://localhost:3000/tasks/" + taskid)
-        .then((res) => res.json())
-        .then((json) => {
-          this.task = json;
-          console.log(json);
-          return;
-        });
-    },
     async addTask(e) {
-      console.log("Task add:", e);
       const data = new FormData(e.target);
-      console.log(data);
       const user = Object.fromEntries(data.entries());
-      const randomNum = Math.floor(Math.random() * 10000000);
-      user.id = randomNum;
-      const transformData = [...this.tasks, { ...user }];
-      this.tasks = transformData;
-      const wantedData = {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(user),
-      };
-      await fetch("http://localhost:3000/tasks/", wantedData).then((res) =>
-        res.json()
-      );
+      user.id = Math.floor(Math.random() * 1000);
+      this.$store.dispatch("task/add_Task", user);
     },
-    async tasks_remove(taskid) {
-      console.log(taskid);
-      const mutateData = this.tasks.filter((task) => task.id !== taskid);
-      this.tasks = mutateData;
-      await fetch("http://localhost:3000/tasks/" + taskid, { method: "DELETE" })
-        .then((res) => res.json())
-        .then((json) => console.log(json));
-    },
+
     async task_edit(id) {
       this.task_edit_model = !this.task_edit_model;
     },
     async tasks_update(e, id, newTitle) {
-      console.log(id);
-      const data = new FormData(e.target);
       this.tasks.forEach((todo) => {
         if (todo.id === id) {
           todo.title = newTitle;
@@ -141,28 +131,29 @@ export default {
       const value = {
         title: newTitle,
       };
-      // this.tasks = mutateData;
       this.task_edit_model = false;
-      const requestOptions = {
-        method: "PATCH",
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-        },
-        body: JSON.stringify(value),
-      };
-      await fetch("http://localhost:3000/tasks/" + id, requestOptions).then(
-        (res) => res.json()
-      );
+      this.$store.dispatch("task/task_update", { value, id });
     },
+    ...mapActions("task", ["getTaskList", "tasks_remove", "showTask"]),
   },
   components: {
     TaskItemVue,
     EditButtonVue,
     PreviewVue,
-    TaskForm
-},
+    TaskForm,
+  },
   mounted() {
     this.getTaskList();
+  },
+  computed: {
+    ...mapState("task", {
+      tasks(state) {
+        return state.tasks;
+      },
+      task(state) {
+        return state.task;
+      },
+    }),
   },
 };
 </script>
