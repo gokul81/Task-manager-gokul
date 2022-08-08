@@ -100,11 +100,18 @@ export default {
       title: "",
     };
   },
+  // watch: {
+  //   tasks(old_tasks, new_tasks) {
+  //     console.log(old_tasks.length);
+  //     console.log(new_tasks.length);
+  //   },
+  // },
   methods: {
     addTask(e) {
       const data = new FormData(e.target);
       const user = Object.fromEntries(data.entries());
       user.id = Math.floor(Math.random() * 1000);
+      user.completed = false;
       this.$store.dispatch("task/add_Task", user);
     },
 

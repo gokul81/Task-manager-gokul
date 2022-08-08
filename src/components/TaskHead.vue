@@ -14,6 +14,7 @@ export default {};
             Users
           </button>
         </router-link>
+        <router-view></router-view>
       </div>
     </div>
   </header>

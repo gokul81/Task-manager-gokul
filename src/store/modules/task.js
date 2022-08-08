@@ -16,8 +16,10 @@ export default {
       state.task = task;
     },
     TASK_ADD(state, payload) {
-      const newTask = [state.tasks, { ...payload }];
-      state.tasks.push(newTask);
+      const newTask = [...state.tasks, { ...payload }];
+      console.log(newTask);
+      state.tasks = newTask;
+      // console.log(payload);
     },
   },
   actions: {
