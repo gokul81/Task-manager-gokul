@@ -1,8 +1,8 @@
 <template>
   <div>
     <edit-button-vue
-      v-show="task_edit_model"
-      @onEdit="tasks_update"
+      v-show="taskEdit_model"
+      @onEdit="tasksUpdate"
       :item="task"
     ></edit-button-vue>
 
@@ -49,7 +49,7 @@
           </div>
           <div>
             <button
-              @click="task_edit(task.id)"
+              @click="taskEdit(task.id)"
               class="text-base px-4 text-white py-1 rounded-xl"
             >
               <img
@@ -86,6 +86,7 @@ import PreviewVue from "./Preview.vue";
 import EditButtonVue from "./EditButton.vue";
 import TaskForm from "./TaskForm.vue";
 import { mapActions, mapState } from "vuex";
+
 export default {
   data() {
     return {
@@ -94,31 +95,22 @@ export default {
       editValue: null,
       toggle: false,
       task_preview_model: false,
-      task_edit_model: false,
-      // id: Math.floor(Math.random() * 1000),
-      // userId: Math.floor(Math.random() * 10000),
+      taskEdit_model: false,
       title: "",
     };
   },
-  // watch: {
-  //   tasks(old_tasks, new_tasks) {
-  //     console.log(old_tasks.length);
-  //     console.log(new_tasks.length);
-  //   },
-  // },
   methods: {
     addTask(e) {
       const data = new FormData(e.target);
       const user = Object.fromEntries(data.entries());
       user.id = Math.floor(Math.random() * 1000);
       user.completed = false;
-      this.$store.dispatch("task/add_Task", user);
+      this.$store.dispatch("task/addTask", user);
     },
-
-    task_edit(id) {
-      this.task_edit_model = !this.task_edit_model;
+    taskEdit(id) {
+      this.taskEdit_model = !this.taskEdit_model;
     },
-    tasks_update(e, id, newTitle) {
+    tasksUpdate(e, id, newTitle) {
       this.tasks.forEach((todo) => {
         if (todo.id === id) {
           todo.title = newTitle;
@@ -127,8 +119,8 @@ export default {
       const value = {
         title: newTitle,
       };
-      this.task_edit_model = false;
-      this.$store.dispatch("task/task_update", { value, id });
+      this.taskEdit_model = false;
+      this.$store.dispatch("task/taskUpdate", { value, id });
     },
     ...mapActions("task", ["getTaskList", "tasks_remove", "showTask"]),
   },
@@ -153,5 +145,3 @@ export default {
   },
 };
 </script>
-
-<style></style>

@@ -1,6 +1,7 @@
 <script>
 export default {};
 </script>
+
 <template>
   <header class="pt-1">
     <div class="container mx-auto px-4 py-4">
@@ -19,5 +20,3 @@ export default {};
     </div>
   </header>
 </template>
-
-<style></style>

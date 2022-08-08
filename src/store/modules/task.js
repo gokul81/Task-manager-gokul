@@ -40,7 +40,7 @@ export default {
       const data = await res.json();
       context.commit("TASK_SHOW", data);
     },
-    add_Task: async (context, payload) => {
+    addTask: async (context, payload) => {
       context.commit("TASK_ADD", payload);
       const requestOptions = {
         method: "POST",
@@ -49,7 +49,7 @@ export default {
       };
       await fetch("http://localhost:3000/tasks", requestOptions);
     },
-    task_update: async (context, payload) => {
+    taskUpdate: async (context, payload) => {
       const requestOptions = {
         method: "PATCH",
         headers: {

@@ -4,16 +4,15 @@
 </template>
 
 <script>
-import MainHeader from './components/layout/MainHeader.vue';
-import ToDoBody from './components/ToDoBody.vue';
-import TaskList from './components/TaskList.vue';
-import MainHeader from './components/layout/MainHeader.vue';
+import MainHeader from "./components/layout/MainHeader.vue";
+import ToDoBody from "./components/ToDoBody.vue";
+import TaskList from "./components/TaskList.vue";
 
 export default {
   components: {
     MainHeader,
     ToDoBody,
-    TaskList
-  }
-}
+    TaskList,
+  },
+};
 </script>

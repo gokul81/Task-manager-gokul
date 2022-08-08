@@ -5,7 +5,13 @@
 </template>
 
 <script>
-export default {
+import TaskList from "../components/TaskList.vue";
+import ToDoBody from "../components/ToDoBody.vue";
 
-}
+export default {
+  components: {
+    TaskList,
+    ToDoBody,
+  },
+};
 </script>
