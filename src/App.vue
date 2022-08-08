@@ -1,23 +1,19 @@
 <template>
-<task-head-vue></task-head-vue>
-<ToDobodyVue>
-
-  <task-list-vue></task-list-vue>
-</ToDobodyVue>
-
+  <main-header></main-header>
+  <router-view></router-view>
 </template>
+
 <script>
-import TaskHeadVue from './components/TaskHead.vue';
-import ToDobodyVue from './components/ToDobody.vue';
-import TaskListVue from './components/TaskList.vue';
-export default{
-components:{
-  TaskHeadVue,
-  ToDobodyVue,
-  TaskListVue
-}
+import MainHeader from './components/layout/MainHeader.vue';
+import ToDoBody from './components/ToDoBody.vue';
+import TaskList from './components/TaskList.vue';
+import MainHeader from './components/layout/MainHeader.vue';
+
+export default {
+  components: {
+    MainHeader,
+    ToDoBody,
+    TaskList
+  }
 }
 </script>
-
-
-
