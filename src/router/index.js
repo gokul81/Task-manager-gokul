@@ -3,7 +3,7 @@ import TasksPage from "../views/TasksPage.vue";
 import UsersPage from "../views/UsersPage.vue";
 
 const routes = [
-  { path: "/", name: "tasks", component: TasksPage },
+  { path: "/tasks", name: "tasks", component: TasksPage },
   { path: "/users", name: "users", component: UsersPage },
 ];
 

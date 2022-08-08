@@ -1,13 +1,14 @@
 <template>
-  <!-- <router-link to="/tasks"></router-link>
-  <div>
-    <button class="bg-yellow-600 p-8">back</button>
+  <div class="bg-white">
+    <router-link to="/tasks">
+      <button class="p-2">
+        <img src="../assets/back.png" class="w-[35px] h-[35px]" alt="back" />
+      </button>
+    </router-link>
   </div>
-  <router-view></router-view> -->
-  <div
-    class="h-screen overflow-hidden flex items-center justify-center bg-[#edf2f7]"
-  >
-    <div class="container max-w-full mx-auto py-24 px-6">
+
+  <div class="h-1/2 overflow-hidden flex items-center justify-center bg-white">
+    <div class="container max-w-full mx-auto py-12 px-6">
       <div class="font-sans">
         <div class="max-w-sm mx-auto px-6">
           <div class="relative flex flex-wrap">
@@ -32,7 +33,7 @@
                       <div class="relative">
                         <input
                           placeholder=""
-                          :type="show ? 'password' : 'text'"
+                          type="text"
                           class="text-md block px-3 py-2 rounded-lg w-full bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-gray-600 focus:outline-none"
                         />
                         <div
@@ -101,8 +102,7 @@
     </div>
   </div>
 </template>
+
 <script>
 export default {};
 </script>
-
-<style></style>

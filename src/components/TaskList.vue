@@ -5,7 +5,6 @@
       @onEdit="tasksUpdate"
       :item="task"
     ></edit-button-vue>
-
     <task-form @onAdd="addTask"></task-form>
     <div v-if="tasks.length > 0">
       <preview-vue>
@@ -26,7 +25,6 @@
           </div>
         </div>
       </preview-vue>
-
       <task-item-vue
         :key="task.id"
         v-for="task in tasks"
